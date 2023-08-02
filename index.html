@@ -23,11 +23,16 @@
         <h1 class="h2 mb-3">RSVP</h1>
         <form>
             <div id="rsvp-name" class="mb-3">
-                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                <label for="name" class="form-label" role="tooltip">Name</label>
+                <input type="text" class="form-control rsvp-floating-ref" name="name" id="rsvp-name" placeholder="Name">
+                <label for="rsvp-name" class="form-label visually-hidden" role="tooltip">Name</label>
             </div>
 
-            <div id="rsvp-options" class="d-flex gap-2">
+            <div id="rsvp-name-float" class="rsvp-floating tooltip-inner" role="tooltip">
+                What's your name?
+                <div class="arrow"></div>
+            </div>
+
+            <div id="rsvp-options" class="rsvp-floating-ref d-flex gap-2" class="d-flex gap-2">
                 <input type="radio" class="btn-check" name="rsvp" id="rsvp-yes" autocomplete="off" checked>
                 <label class="btn btn-success flex-fill" for="rsvp-yes">Yes</label>
 
@@ -38,9 +43,9 @@
                 <label class="btn btn-danger flex-fill" for="rsvp-no">No</label>
             </div>
 
-            <div id="rsvp-options-float" class="rsvp-tooltip tooltip-inner" role="tooltip">
+            <div id="rsvp-options-float" class="rsvp-floating tooltip-inner" role="tooltip">
                 Can you come?
-                <div id="arrow"></div>
+                <div class="arrow"></div>
             </div>
         </form>
     </main>
@@ -64,22 +69,18 @@
             arrow,
         } from 'https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.0/+esm';
 
-        const button = document.querySelector('#rsvp-options');
-        const tooltip = document.querySelector('#rsvp-options-float');
-        const arrowElement = document.querySelector('#arrow');
-
-        function updatePosition() {
-            computePosition(button, tooltip, {
+        function updatePosition(referenceEl, floatingEl, arrowEl) {
+            computePosition(referenceEl, floatingEl, {
                 placement: 'left',
                 middleware: [
-                    offset(6),
+                    offset(14),
                     flip(),
                     shift({ padding: 5 }),
-                    arrow({ element: arrowElement })
+                    arrow({ element: arrowEl })
                 ],
             }).then(
                 ({ x, y, placement, middlewareData }) => {
-                    Object.assign(tooltip.style, {
+                    Object.assign(floatingEl.style, {
                         left: `${x}px`,
                         top: `${y}px`,
                     });
@@ -92,7 +93,7 @@
                         left: 'right',
                     }[placement.split('-')[0]];
 
-                    Object.assign(arrowElement.style, {
+                    Object.assign(arrowEl.style, {
                         left: arrowX != null ? `${arrowX}px` : '',
                         top: arrowY != null ? `${arrowY}px` : '',
                         right: '',
@@ -102,11 +103,14 @@
                 });
         }
 
-        const cleanup = autoUpdate(
-            button,
-            tooltip,
-            updatePosition
-        );
+        document.querySelectorAll('.rsvp-floating-ref').forEach(element => {
+            const referenceEl = element;
+            const floatingEl = document.querySelector('#' + referenceEl.id + '-float');
+            const arrowEl = floatingEl.querySelector('.arrow');
+
+            autoUpdate(referenceEl, floatingEl, updatePosition.bind(null, referenceEl, floatingEl, arrowEl))
+        })
     </script>
 </body>
+
 </html>

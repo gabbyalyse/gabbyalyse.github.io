@@ -14,25 +14,25 @@
     <link href="rsvp.css" rel="stylesheet">
 </head>
 
-<body class="d-flex align-items-center h-100">
+<body class="d-flex align-items-center h-100 bg-body">
     <header>
         <!-- place navbar here -->
     </header>
 
-    <main class="form-rsvp m-auto w-100">
-        <h1 class="h2 mb-3">RSVP</h1>
+    <main class="form-rsvp m-auto py-5 px-3 w-100 text-center rounded bg-body-tertiary shadow">
+        <h1 class="display-6 mb-5 lh-1">RSVP</h1>
         <form>
             <div id="rsvp-name" class="mb-3">
                 <input type="text" class="form-control rsvp-floating-ref" name="name" id="rsvp-name" placeholder="Name">
                 <label for="rsvp-name" class="form-label visually-hidden" role="tooltip">Name</label>
             </div>
 
-            <div id="rsvp-name-float" class="rsvp-floating tooltip-inner" role="tooltip">
+            <div id="rsvp-name-float" class="rsvp-floating tooltip-inner visually-hidden" role="tooltip">
                 What's your name?
                 <div class="arrow"></div>
             </div>
 
-            <div id="rsvp-options" class="rsvp-floating-ref d-flex gap-2" class="d-flex gap-2">
+            <div id="rsvp-options" class="rsvp-floating-ref d-flex gap-2 mb-5" class="d-flex gap-2">
                 <input type="radio" class="btn-check" name="rsvp" id="rsvp-yes" autocomplete="off" checked>
                 <label class="btn btn-success flex-fill" for="rsvp-yes">Yes</label>
 
@@ -43,10 +43,12 @@
                 <label class="btn btn-danger flex-fill" for="rsvp-no">No</label>
             </div>
 
-            <div id="rsvp-options-float" class="rsvp-floating tooltip-inner" role="tooltip">
+            <div id="rsvp-options-float" class="rsvp-floating tooltip-inner visually-hidden" role="tooltip">
                 Can you come?
                 <div class="arrow"></div>
             </div>
+
+            <input class="btn btn-primary" type="submit" value="Submit">
         </form>
     </main>
 

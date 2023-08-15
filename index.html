@@ -16,7 +16,7 @@
     <link href="style.css" rel="stylesheet">
 </head>
 
-<body class="d-flex align-items-center h-100 bg-body">
+<body class="d-flex align-items-center h-100">
     <header>
         <!-- place navbar here -->
     </header>
@@ -32,12 +32,12 @@
                 <label for="rsvp-name" class="form-label visually-hidden" role="tooltip">Name</label>
             </div>
 
-            <div id="rsvp-name-float" class="rsvp-floating tooltip-inner visually-hidden" role="tooltip">
+            <div id="rsvp-name-float" class="rsvp-floating tooltip-inner" role="tooltip">
                 What's your name?
                 <div class="arrow"></div>
             </div>
 
-            <div id="rsvp-options" class="rsvp-floating-ref d-flex gap-2 mb-5" class="d-flex gap-2">
+            <div id="rsvp-options" class="rsvp-floating-ref d-flex gap-2" class="d-flex gap-2">
                 <input type="radio" class="btn-check" name="rsvp" id="rsvp-yes" autocomplete="off" checked>
                 <label class="btn btn-success flex-fill" for="rsvp-yes">Yes</label>
 
@@ -48,12 +48,10 @@
                 <label class="btn btn-danger flex-fill" for="rsvp-no">No</label>
             </div>
 
-            <div id="rsvp-options-float" class="rsvp-floating tooltip-inner visually-hidden" role="tooltip">
+            <div id="rsvp-options-float" class="rsvp-floating tooltip-inner" role="tooltip">
                 Can you come?
                 <div class="arrow"></div>
             </div>
-
-            <input class="btn btn-primary" type="submit" value="Submit">
         </form>
     </main>
 

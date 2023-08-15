@@ -11,7 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <link href="rsvp.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b07e71bfcd.js" crossorigin="anonymous"></script>
+
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body class="d-flex align-items-center h-100">
@@ -20,10 +22,13 @@
     </header>
 
     <main class="form-rsvp m-auto w-100">
-        <h1 class="h2 mb-3">RSVP</h1>
-        <form>
+        <h1 class="h2 mb-3">
+            <i class="fa-solid fa-envelope-circle-check"></i> RSVP
+        </h1>
+        <form class="shadow rounded p-3 bg-body-tertiary">
             <div id="rsvp-name" class="mb-3">
-                <input type="text" class="form-control rsvp-floating-ref" name="name" id="rsvp-name" placeholder="Name">
+                <input type="text" class="form-control rsvp-floating-ref bg-body-secondary" name="name" id="rsvp-name"
+                    placeholder="Name">
                 <label for="rsvp-name" class="form-label visually-hidden" role="tooltip">Name</label>
             </div>
 
